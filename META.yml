@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               HTTP-Message
-version:            6.00
+version:            6.01
 abstract:           HTTP style messages
 author:
     - Gisle Aas <gisle@activestate.com>
@@ -14,7 +14,6 @@ requires:
     Compress::Raw::Zlib:  0
     Encode:               2.12
     Encode::Locale:       1
-    HTML::Entities:       0
     HTML::Parser:         3.33
     HTTP::Date:           6
     IO::Compress::Bzip2:  0
