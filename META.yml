@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               HTTP-Message
-version:            6.01
+version:            6.02
 abstract:           HTTP style messages
 author:
     - Gisle Aas <gisle@activestate.com>
@@ -16,10 +16,10 @@ requires:
     Encode::Locale:       1
     HTML::Parser:         3.33
     HTTP::Date:           6
-    IO::Compress::Bzip2:  0
+    IO::Compress::Bzip2:  2.021
     IO::Compress::Deflate:  0
     IO::Compress::Gzip:   0
-    IO::Uncompress::Bunzip2:  0
+    IO::Uncompress::Bunzip2:  2.021
     IO::Uncompress::Gunzip:  0
     IO::Uncompress::Inflate:  0
     IO::Uncompress::RawInflate:  0
@@ -30,7 +30,7 @@ requires:
     URI:                  1.10
 resources:
     MailingList:  mailto:libwww@perl.org
-    repository:   http://github.com/gisle/libwww-perl
+    repository:   http://github.com/gisle/libwww-perl/tree/HTTP-Message/master
 no_index:
     directory:
         - t
