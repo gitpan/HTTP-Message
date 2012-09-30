@@ -1,7 +1,7 @@
 #perl -w
 
 use Test;
-plan tests => 52;
+plan tests => 57;
 
 use HTTP::Request::Common;
 
@@ -52,6 +52,14 @@ ok($r->content_length, 83);
 ok($r->header("bar"), "foo");
 ok($r->content, "foo=bar%3Bbaz&baz=a&baz=b&baz=c&foo=zoo%3D%26&space+=+%2B+&nl=a%0D%0Ab%0D%0Ac%0D%0A");
 
+$r = POST "http://example.com";
+ok($r->content_length, 0);
+ok($r->content, "");
+
+$r = POST "http://example.com", [];
+ok($r->content_length, 0);
+ok($r->content, "");
+
 $r = POST "mailto:gisle\@aas.no",
      Subject => "Heisan",
      Content_Type => "text/plain",
@@ -62,6 +70,13 @@ ok($r->method, "POST");
 ok($r->header("Subject"), "Heisan");
 ok($r->content, "Howdy\n");
 ok($r->content_type, "text/plain");
+
+{
+    my @warnings;
+    local $SIG{__WARN__} = sub { push @warnings, @_ };
+    $r = POST 'http://unf.ug/', [];
+    ok( "@warnings", '', 'empty POST' );
+}
 
 #
 # POST for File upload

@@ -17,8 +17,8 @@ WriteMakefile(
 	'HTTP::Date'     => 6,
         'MIME::Base64'   => "2.1",
 	'MIME::QuotedPrint' => 0,
-        'HTML::Parser'   => "3.33",
-	'Encode'         => "2.12",
+	'IO::HTML'       => 0,
+	'Encode'         => "2.21", # need mime_name
 	'Encode::Locale' => 1,
 	'LWP::MediaTypes' => 6,
         'Compress::Raw::Zlib'        => 0,
@@ -32,7 +32,7 @@ WriteMakefile(
     },
     META_MERGE => {
 	resources => {
-            repository => 'http://github.com/gisle/http-message',
+            repository => 'http://github.com/libwww-perl/http-message',
 	    MailingList => 'mailto:libwww@perl.org',
         }
     },
